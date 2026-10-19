@@ -5,8 +5,8 @@ import { ProjectShowcase } from "@/components/worlds/ProjectShowcase";
 import { WorldHero } from "@/components/worlds/WorldHero";
 import { WorldStatement } from "@/components/worlds/WorldStatement";
 import { getSelectedProjects, getWorld } from "@/content";
-import loretaStill from "@/content/images/work-loreta-still.jpg";
-import orangeCatStill from "@/content/images/work-orange-cat-still.jpg";
+import project01 from "@/content/images/project-01-flash.jpg";
+import project03 from "@/content/images/project-03-flash.jpg";
 
 export const metadata: Metadata = {
   title: "Design",
@@ -23,8 +23,8 @@ export default async function DesignPage() {
       <WorldHero world={world} />
       <WorldStatement
         images={[
-          { src: loretaStill, alt: "" },
-          { src: orangeCatStill, alt: "" },
+          { src: project03, alt: "", position: "50% 40%" },
+          { src: project01, alt: "" },
         ]}
       >
         I sketch on paper before I touch a screen — then build interfaces that

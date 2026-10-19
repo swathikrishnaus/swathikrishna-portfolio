@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw, unedited video sources (the site uses the encoded .mp4 copies)
+/public/videos/work-videos/
+/public/videos/video.MOV
+/public/videos/travel.mov
+/public/videos/hand.mp4
+/public/videos/worls.mp4

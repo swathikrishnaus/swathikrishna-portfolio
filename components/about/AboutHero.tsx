@@ -98,17 +98,17 @@ export function AboutHero() {
           <div data-reveal className="md:col-span-6 md:col-start-7">
             <div className="space-y-5 text-[1.05rem] leading-relaxed text-ink-soft md:text-[1.1rem]">
               <p>
-                I design things for screens, make things with my hands, collect
+                I design and build websites, crochet things to wear, and collect
                 new interests like they’re{" "}
                 <em className="font-display-soft text-[1.1em] text-moss">
                   little treasures
                 </em>
-                , and occasionally disappear into nature.
+                . When the screen gets too loud, I head for a forest trail.
               </p>
               <p>
-                One day, I’m moving pixels around in Figma. The next, I’m
-                counting beads, crocheting something unusual, singing a song on
-                repeat, or planning my next little escape.
+                One day, I’m deciding what sits where on a page in Figma, or
+                building it in Next.js. The next, I’m finishing a bandana edged
+                with tiny rosebuds, or planning my next little escape.
               </p>
               <p>
                 I like making things, figuring things out, and{" "}
@@ -120,7 +120,7 @@ export function AboutHero() {
               </p>
             </div>
             <p className="mt-10 border-t border-sage pt-4 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-clay">
-              Design · Handmade things · Music · Little adventures
+              UI &amp; UX design · Development · Crochet · Travel
             </p>
           </div>
         </div>

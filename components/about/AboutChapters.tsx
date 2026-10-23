@@ -21,7 +21,7 @@ const chapters: Chapter[] = [
     label: "The designer",
     title: "From sketch",
     accent: "to screen",
-    text: "Most of my ideas start on paper as boxes, arrows and notes in the margins, long before they reach Figma. I design interfaces and build websites that feel calm and clear, and I care a little too much about the spacing between things.",
+    text: "Most of my ideas start on paper as boxes, arrows and notes in the margins, long before they reach Figma. I plan the UX, design the UI and build sites in HTML, CSS, Bootstrap and Next.js, for bike shops, film studios and software firms. I care a little too much about the spacing between things.",
     media: {
       image: sketches,
       alt: "Hand-drawn wireframe sketches of app screens in an open notebook",
@@ -29,9 +29,9 @@ const chapters: Chapter[] = [
   },
   {
     label: "The maker",
-    title: "Bead by bead,",
-    accent: "row by row",
-    text: "Crochet, brick-stitch earrings, bead-loom patterns and whatever experiment comes next. I love starting with a colour or a texture and letting my hands figure out the rest, happy accidents included.",
+    title: "Loop by loop,",
+    accent: "round by round",
+    text: "Bandanas, net caps, bows and little bags, all crocheted by hand. I start with a colour or a texture and let my hands figure out the rest, happy accidents included. The finished pieces find new homes through my shop, @lavanut.store.",
     media: {
       video: "/videos/handmade-flash-loop.mp4",
       poster: crochetPoster,
@@ -42,7 +42,7 @@ const chapters: Chapter[] = [
     label: "The wanderer",
     title: "Out of office,",
     accent: "into nature",
-    text: "Forest streams, rocky trails and roads I’ve never taken. I travel slowly, take far too many photos, and come home with new colours for the worktable.",
+    text: "Forest streams, boulder trails and the view from an old desert fort. I travel slowly, take far too many photos, and come home with new colours for the worktable.",
     media: {
       image: pool,
       alt: "A small waterfall spilling between boulders into a clear green pool",
@@ -63,7 +63,7 @@ export function AboutChapters() {
             <blockquote className="font-display-soft text-[clamp(1.6rem,2.7vw,2.6rem)] font-light leading-[1.2] tracking-[-0.02em]">
               “Every interest I pick up teaches me something about the others:{" "}
               <span className="italic text-clay">
-                colour from beads, patience from crochet, and space from the
+                clarity from design, patience from crochet, and space from the
                 trail.
               </span>
               ”

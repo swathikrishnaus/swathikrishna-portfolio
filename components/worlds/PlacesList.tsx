@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Arrow } from "@/components/ui/Arrow";
+import { ViewBadge } from "@/components/ui/ViewBadge";
 import { PhotoViewer } from "@/components/ui/PhotoViewer";
 import type { TravelPhoto } from "@/content";
 
@@ -53,13 +53,7 @@ export function PlacesList({ photos }: { photos: TravelPhoto[] }) {
                           : undefined
                       }
                     />
-                    <span
-                      aria-hidden="true"
-                      className="absolute bottom-4 right-4 hidden size-16 scale-0 items-center justify-center gap-1 rounded-full bg-clay font-mono text-[0.55rem] uppercase tracking-[0.18em] text-ivory shadow-[0_12px_30px_-12px_rgb(0_0_0/0.5)] transition-transform duration-500 ease-out-soft group-hover:scale-100 group-focus-visible:scale-100 md:flex"
-                    >
-                      View
-                      <Arrow direction="up-right" className="size-3" />
-                    </span>
+                    <ViewBadge />
                   </button>
                   <figcaption className="mt-4 grid gap-1 md:grid-cols-[minmax(0,1fr)_auto] md:gap-x-6">
                     <span className="font-display-soft text-[clamp(1.15rem,1.8vw,1.75rem)] leading-tight">

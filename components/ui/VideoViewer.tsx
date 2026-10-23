@@ -50,7 +50,7 @@ export function VideoViewer({ video, onClose }: VideoViewerProps) {
       aria-label={video ? `${video.title} recording` : "Video viewer"}
       onClose={onClose}
       onClick={closeOnBackdrop}
-      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-ink/95 p-0 text-ivory backdrop:bg-ink/70 open:flex open:flex-col"
+      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-ink p-0 text-ivory backdrop:bg-ink/70 open:flex open:flex-col"
     >
       {video && (
         <>

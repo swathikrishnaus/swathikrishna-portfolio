@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Arrow } from "@/components/ui/Arrow";
 import { LoopVideo } from "@/components/ui/LoopVideo";
+import { ViewBadge } from "@/components/ui/ViewBadge";
 import { type ViewerVideo, VideoViewer } from "@/components/ui/VideoViewer";
 import type { Project } from "@/content";
 
@@ -59,6 +60,7 @@ export function ProjectShowcase({ projects }: { projects: Project[] }) {
                     className="object-cover object-top"
                   />
                 )}
+                {video && <ViewBadge label="Play" />}
               </div>
             </>
           );

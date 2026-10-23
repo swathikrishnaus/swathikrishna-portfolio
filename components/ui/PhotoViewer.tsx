@@ -69,11 +69,11 @@ export function PhotoViewer({ photos, index, onChange }: PhotoViewerProps) {
         swipeStart.current = null;
         if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
       }}
-      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-ink/95 p-0 text-ivory backdrop:bg-ink/70 open:flex open:flex-col"
+      className="fixed inset-0 m-0 h-full max-h-none w-full max-w-none bg-ink p-0 text-ivory backdrop:bg-ink/70 open:flex open:flex-col"
     >
       {current && index !== null && (
         <>
-          <div className="container-page flex h-16 shrink-0 items-center justify-between font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ivory/70 md:h-20">
+          <div className="container-page flex h-14 shrink-0 items-center justify-between font-mono text-[0.65rem] uppercase tracking-[0.2em] text-ivory/70 md:h-16">
             <span>
               {index + 1} / {count}
             </span>
@@ -87,25 +87,29 @@ export function PhotoViewer({ photos, index, onChange }: PhotoViewerProps) {
             </button>
           </div>
 
+          {/* The photo takes all the room left, scaled to fit. */}
           <figure
             onClick={(event) => {
               if (event.target === event.currentTarget) onChange(null);
             }}
-            className="flex min-h-0 flex-1 flex-col items-center justify-center px-[var(--gutter)]"
+            className="relative flex min-h-0 flex-1 flex-col px-[var(--gutter)] pb-4 md:px-24"
           >
-            <Image
-              key={current.key}
-              src={current.image.src}
-              alt={current.image.alt}
-              placeholder={
-                typeof current.image.src === "string" ? "empty" : "blur"
-              }
-              quality={90}
-              sizes="90vw"
-              className="h-auto max-h-[calc(100svh-12rem)] w-auto max-w-full animate-fade object-contain"
-            />
-            <figcaption className="mt-4 text-center">
-              <span className="font-display-soft block text-[1.5rem] leading-tight">
+            <div className="relative min-h-0 flex-1">
+              <Image
+                key={current.key}
+                src={current.image.src}
+                alt={current.image.alt}
+                placeholder={
+                  typeof current.image.src === "string" ? "empty" : "blur"
+                }
+                fill
+                quality={90}
+                sizes="100vw"
+                className="animate-fade object-contain"
+              />
+            </div>
+            <figcaption className="mt-3 shrink-0 text-center">
+              <span className="font-display-soft block text-[1.35rem] leading-tight">
                 {current.title}
               </span>
               {current.label && (
@@ -114,14 +118,12 @@ export function PhotoViewer({ photos, index, onChange }: PhotoViewerProps) {
                 </span>
               )}
             </figcaption>
-          </figure>
 
-          <div className="container-page flex h-20 shrink-0 items-center justify-between">
             <button
               type="button"
               onClick={() => step(-1)}
               aria-label="Previous photo"
-              className="flex size-12 items-center justify-center rounded-full border border-ivory/30 transition-colors hover:bg-ivory hover:text-ink"
+              className="absolute left-[var(--gutter)] top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-ivory/30 bg-ink/40 backdrop-blur-sm transition-colors hover:bg-ivory hover:text-ink md:size-12"
             >
               <Arrow className="rotate-180" />
             </button>
@@ -129,11 +131,11 @@ export function PhotoViewer({ photos, index, onChange }: PhotoViewerProps) {
               type="button"
               onClick={() => step(1)}
               aria-label="Next photo"
-              className="flex size-12 items-center justify-center rounded-full border border-ivory/30 transition-colors hover:bg-ivory hover:text-ink"
+              className="absolute right-[var(--gutter)] top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-ivory/30 bg-ink/40 backdrop-blur-sm transition-colors hover:bg-ivory hover:text-ink md:size-12"
             >
               <Arrow />
             </button>
-          </div>
+          </figure>
         </>
       )}
     </dialog>

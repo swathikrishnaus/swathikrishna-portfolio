@@ -5,9 +5,15 @@ type WorldStatementProps = {
   children: React.ReactNode;
   /** Two small pictures that drift past the text at different speeds. */
   images: [ImageAsset, ImageAsset];
+  /** Optional call to action under the text. */
+  action?: React.ReactNode;
 };
 
-export function WorldStatement({ children, images }: WorldStatementProps) {
+export function WorldStatement({
+  children,
+  images,
+  action,
+}: WorldStatementProps) {
   const [first, second] = images;
 
   return (
@@ -34,10 +40,19 @@ export function WorldStatement({ children, images }: WorldStatementProps) {
 
       <p
         data-reveal
-        className="font-display-soft relative z-10 mx-auto max-w-[21ch] text-center text-[clamp(1.75rem,3.6vw,3.5rem)] md:max-w-[min(21ch,62vw)] font-light leading-[1.08] tracking-[-0.025em]"
+        className="font-display-soft relative z-10 mx-auto max-w-[21ch] text-balance text-center text-[clamp(1.75rem,3.6vw,3.5rem)] md:max-w-[min(21ch,62vw)] font-light leading-[1.08] tracking-[-0.025em]"
       >
         {children}
       </p>
+
+      {action && (
+        <div
+          data-reveal
+          className="relative z-10 mt-10 flex justify-center md:mt-12"
+        >
+          {action}
+        </div>
+      )}
 
       <figure
         aria-hidden="true"

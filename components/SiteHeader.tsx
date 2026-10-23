@@ -27,10 +27,20 @@ export function SiteHeader() {
     let frame = 0;
 
     const update = () => {
-      const y = window.scrollY;
+      // Clamp out the elastic bounce at either end of the page, which would
+      // otherwise read as scrolling the other way.
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const y = Math.min(Math.max(window.scrollY, 0), max);
       setScrolled(y > 24);
-      setHidden(y > 480 && y > lastY + 4);
-      if (Math.abs(y - lastY) > 4) lastY = y;
+      if (y <= 480) {
+        setHidden(false);
+        lastY = y;
+      } else if (Math.abs(y - lastY) > 8) {
+        // Only change direction after a real move, so small steps while a
+        // scroll slows down don't flip the bar back and forth.
+        setHidden(y > lastY);
+        lastY = y;
+      }
       frame = 0;
     };
 
@@ -101,10 +111,10 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label="Primary" className="hidden md:block">
-            <ul className="flex items-center gap-10 text-[0.9rem]">
+            <ul className="flex items-center gap-2 text-[0.9rem]">
               {site.nav.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="link-underline pb-1">
+                  <Link href={item.href} className="nav-pill">
                     {item.label}
                   </Link>
                 </li>

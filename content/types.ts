@@ -27,11 +27,7 @@ export type Project = {
 };
 
 export type HandmadeCategory =
-  | "Brick-stitch earrings"
-  | "Bead loom"
-  | "Beadwork"
-  | "Crochet"
-  | "Material study";
+  "Headwear" | "Hair accessories" | "Bags" | "Wearables";
 
 export type HandmadeItem = {
   slug: string;

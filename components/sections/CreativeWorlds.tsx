@@ -12,7 +12,7 @@ export function CreativeWorlds() {
           id="worlds-title"
           className="font-display-soft text-[clamp(2rem,3.6vw,3.5rem)] font-light leading-[1] tracking-[-0.03em]"
         >
-          A few things I love —
+          A few things I love,
           <br />
           <span className="italic text-clay">pick one and wander in.</span>
         </h2>

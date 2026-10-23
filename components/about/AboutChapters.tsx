@@ -2,7 +2,6 @@ import Image, { type StaticImageData } from "next/image";
 import portrait from "@/content/images/hero-portrait-flash.jpg";
 import sketches from "@/content/images/world-digital-flash.jpg";
 import crochetPoster from "@/content/images/handmade-video-poster.jpg";
-import balcony from "@/content/images/hero-video-poster.jpg";
 import pool from "@/content/images/trip-pool.jpg";
 import travelPoster from "@/content/images/travel-video-poster.jpg";
 import { LoopVideo } from "@/components/ui/LoopVideo";
@@ -22,7 +21,7 @@ const chapters: Chapter[] = [
     label: "The designer",
     title: "From sketch",
     accent: "to screen",
-    text: "Most of my ideas start on paper — boxes, arrows and notes in the margins — long before they reach Figma. I design interfaces and build websites that feel calm and clear, and I care a little too much about the spacing between things.",
+    text: "Most of my ideas start on paper as boxes, arrows and notes in the margins, long before they reach Figma. I design interfaces and build websites that feel calm and clear, and I care a little too much about the spacing between things.",
     media: {
       image: sketches,
       alt: "Hand-drawn wireframe sketches of app screens in an open notebook",
@@ -32,22 +31,11 @@ const chapters: Chapter[] = [
     label: "The maker",
     title: "Bead by bead,",
     accent: "row by row",
-    text: "Crochet, brick-stitch earrings, bead-loom patterns and whatever experiment comes next. I love starting with a colour or a texture and letting my hands figure out the rest — happy accidents included.",
+    text: "Crochet, brick-stitch earrings, bead-loom patterns and whatever experiment comes next. I love starting with a colour or a texture and letting my hands figure out the rest, happy accidents included.",
     media: {
       video: "/videos/handmade-flash-loop.mp4",
       poster: crochetPoster,
-      alt: "Hands holding up a pale green crochet kerchief edged with pink flowers against tall leaves",
-    },
-  },
-  {
-    label: "The listener",
-    title: "Music on,",
-    accent: "world off",
-    text: "Some songs are just for listening. Others I replay twenty times and sing along to as if I’m recording an album. Music is how I switch the world off for a while.",
-    media: {
-      image: balcony,
-      alt: "Swathi seen from behind on a balcony, wearing a crocheted net cap, long hair moving in the breeze",
-      position: "50% 30%",
+      alt: "Hands holding up a pale green crochet bandana edged with pink flowers against tall leaves",
     },
   },
   {
@@ -73,7 +61,7 @@ export function AboutChapters() {
         <div className="grid items-center gap-10 md:grid-cols-12 md:gap-6">
           <figure data-reveal className="md:col-span-6 md:col-start-2">
             <blockquote className="font-display-soft text-[clamp(1.6rem,2.7vw,2.6rem)] font-light leading-[1.2] tracking-[-0.02em]">
-              “Every interest I pick up teaches me something about the others —{" "}
+              “Every interest I pick up teaches me something about the others:{" "}
               <span className="italic text-clay">
                 colour from beads, patience from crochet, and space from the
                 trail.
@@ -81,7 +69,7 @@ export function AboutChapters() {
               ”
             </blockquote>
             <figcaption className="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.22em] text-muted">
-              — Swathi, designer &amp; maker
+              Swathi, designer &amp; maker
             </figcaption>
           </figure>
           <div

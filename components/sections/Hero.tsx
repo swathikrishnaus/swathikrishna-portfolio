@@ -83,9 +83,9 @@ export function Hero() {
           style={delay(600)}
         >
           <p className="font-display-soft text-[clamp(1.9rem,3.6vw,3.5rem)] font-light leading-[1] tracking-[-0.025em]">
-            Pixels, stitches, beads
+            Can one heart hold
             <br />
-            <span className="italic text-sage-soft">&amp; faraway places.</span>
+            <span className="italic text-sage-soft">so many first loves?</span>
           </p>
           <ArrowLink
             href="#work"

@@ -129,6 +129,29 @@ body {
   }
 }
 
+/* Header and footer nav: outlined pills that fill with clay, text in soft
+   sage, on hover. The outline follows the text colour, so they work on the
+   dark hero, the ivory bar and the moss footer alike. */
+@utility nav-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+  padding: 0.5rem 1.15rem;
+  line-height: 1;
+  transition:
+    color 0.3s var(--ease-out-soft),
+    background-color 0.3s var(--ease-out-soft),
+    border-color 0.3s var(--ease-out-soft);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-sage-soft);
+    background-color: var(--color-clay);
+    border-color: var(--color-clay);
+  }
+}
+
 @utility line-mask {
   display: block;
   overflow: hidden;
@@ -264,16 +287,6 @@ body {
   -webkit-text-stroke: max(1.5px, 0.011em) var(--color-ivory);
 }
 
-/* Handmade gallery: pebble-shaped frames that ease into another outline. */
-.blob {
-  border-radius: var(--blob);
-  transition: border-radius 1.2s var(--ease-out-soft);
-}
-
-.group:hover .blob {
-  border-radius: var(--blob-hover);
-}
-
 /* Small pictures that drift against the scroll, each at its own pace. */
 @supports (animation-timeline: view()) {
   .drift {
@@ -291,73 +304,12 @@ body {
   }
 }
 
-/* Travel: prints that open out to full width, words that rise through them,
-   and headline words that change colour as the list is read. */
-@supports (animation-timeline: view()) {
-  .pin-grow {
-    animation: pin-grow linear both;
-    animation-timeline: --wander;
-    animation-range: entry 25% entry 100%;
-  }
-
-  .value-word {
-    animation: value-pass linear both;
-    animation-timeline: view();
-  }
-
-  .places-ink {
-    animation: places-ink linear both;
-    animation-timeline: --places;
-    animation-range: entry 40% exit 60%;
-  }
-}
-
-@keyframes pin-grow {
-  from {
-    clip-path: inset(9% 7% round 1rem);
-  }
-  to {
-    clip-path: inset(0 round 0);
-  }
-}
-
-@keyframes value-pass {
-  0% {
-    opacity: 0;
-    translate: 0 3rem;
-  }
-  35%,
-  65% {
-    opacity: 1;
-    translate: 0 0;
-  }
-  100% {
-    opacity: 0;
-    translate: 0 -3rem;
-  }
-}
-
-@keyframes places-ink {
-  from {
-    color: var(--color-sage);
-  }
-  50% {
-    color: var(--color-moss);
-  }
-  to {
-    color: var(--color-clay);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .drift,
-  .pin-grow,
-  .value-word,
-  .places-ink {
+  .drift {
     animation: none;
   }
 

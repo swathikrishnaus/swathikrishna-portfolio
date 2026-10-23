@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { RevealObserver } from "@/components/RevealObserver";
-import { NextWorld } from "@/components/worlds/NextWorld";
+import { OtherWorlds } from "@/components/worlds/OtherWorlds";
 import { ProjectShowcase } from "@/components/worlds/ProjectShowcase";
 import { WorldHero } from "@/components/worlds/WorldHero";
 import { WorldStatement } from "@/components/worlds/WorldStatement";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default async function DesignPage() {
-  const { world, next } = getWorld("digital");
+  const { world, others } = getWorld("digital");
   const projects = await getSelectedProjects();
 
   return (
@@ -27,7 +27,7 @@ export default async function DesignPage() {
           { src: project01, alt: "" },
         ]}
       >
-        I sketch on paper before I touch a screen — then build interfaces that
+        I sketch on paper before I touch a screen, then build interfaces that
         feel{" "}
         <span className="italic text-clay">
           calm, clear and a little handmade.
@@ -36,23 +36,25 @@ export default async function DesignPage() {
 
       <section
         aria-labelledby="projects-title"
-        className="container-page pb-[var(--section-space)]"
+        className="bg-paper py-[var(--section-space)]"
       >
-        <div className="mb-10 flex flex-col gap-3 md:mb-14 md:flex-row md:items-end md:justify-between">
-          <h2
-            id="projects-title"
-            className="font-display-soft text-[clamp(2rem,3.6vw,3.5rem)] font-light leading-[1] tracking-[-0.03em]"
-          >
-            Selected <span className="italic text-clay">screens.</span>
-          </h2>
-          <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
-            Recent websites — case studies coming soon
-          </p>
+        <div className="container-page">
+          <div className="mb-10 flex flex-col gap-3 md:mb-14 md:flex-row md:items-end md:justify-between">
+            <h2
+              id="projects-title"
+              className="font-display-soft text-[clamp(2rem,3.6vw,3.5rem)] font-light leading-[1] tracking-[-0.03em]"
+            >
+              Selected <span className="italic text-clay">screens.</span>
+            </h2>
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
+              Recent websites · case studies coming soon
+            </p>
+          </div>
+          <ProjectShowcase projects={projects} />
         </div>
-        <ProjectShowcase projects={projects} />
       </section>
 
-      <NextWorld world={next} />
+      <OtherWorlds worlds={others} className="pt-[var(--section-space)]" />
       <RevealObserver />
     </>
   );

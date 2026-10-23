@@ -11,17 +11,14 @@ async function CurrentYear() {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-sand">
+    <footer className="bg-moss text-sage-soft">
       <div className="container-page">
-        <div className="border-t border-ivory/15 py-12">
+        <div className="py-12">
           <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 text-[0.9rem]">
+            <ul className="flex flex-wrap gap-2 text-[0.9rem]">
               {site.nav.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="link-underline pb-1 hover:text-ivory"
-                  >
+                  <Link href={item.href} className="nav-pill">
                     {item.label}
                   </Link>
                 </li>
@@ -30,7 +27,7 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="flex flex-col-reverse gap-4 border-t border-ivory/10 py-6 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-sand/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col-reverse gap-4 border-t border-sage/30 py-6 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-sage sm:flex-row sm:items-center sm:justify-between">
           <p>
             © <CurrentYear /> {site.name}. All rights reserved.
           </p>

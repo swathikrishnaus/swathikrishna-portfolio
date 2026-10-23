@@ -118,7 +118,13 @@ export function WorldCard({
           >
             <span className="inline-block transition-transform duration-1000 ease-out-soft group-hover:-translate-y-2">
               {world.title}{" "}
-              <span className={`whitespace-nowrap italic ${world.accentColor}`}>
+              {/* On cards the accent takes its own line, wrapping evenly
+                  when the card is squeezed. */}
+              <span
+                className={`italic ${world.accentColor} ${
+                  size === "card" ? "block text-balance" : ""
+                }`}
+              >
                 {world.accent}
               </span>
             </span>

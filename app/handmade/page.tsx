@@ -1,26 +1,59 @@
 import type { Metadata } from "next";
 import { RevealObserver } from "@/components/RevealObserver";
-import { BlobGallery } from "@/components/worlds/BlobGallery";
-import { NextWorld } from "@/components/worlds/NextWorld";
+import { ArrowLink } from "@/components/ui/ArrowLink";
+import { PiecesGrid } from "@/components/worlds/PiecesGrid";
+import { OtherWorlds } from "@/components/worlds/OtherWorlds";
 import { WorldHero } from "@/components/worlds/WorldHero";
 import { WorldStatement } from "@/components/worlds/WorldStatement";
-import { getHandmadeItems, getWorld } from "@/content";
+import { getHandmadeItems, getWorld, site } from "@/content";
+import rosebudDetail from "@/content/images/craft-rosebud-bandana-detail.jpg";
+import netCapTies from "@/content/images/craft-net-cap-ties.jpg";
 
 export const metadata: Metadata = {
   title: "Handmade",
-  description: "Beadwork, bead-loom pieces, crochet and material studies.",
+  description:
+    "Crochet bandanas, caps, bags and hair accessories, made by hand.",
 };
 
 export default async function HandmadePage() {
-  const { world, next } = getWorld("handmade");
+  const { world, others } = getWorld("handmade");
   const items = await getHandmadeItems();
 
   return (
     <>
       <WorldHero world={world} />
-      <WorldStatement images={[items[2].image, items[0].image]}>
-        Earrings stitched bead by bead, loom pieces worked row by row, crochet
-        shaped <span className="italic text-clay">one round at a time.</span>
+      <WorldStatement
+        images={[
+          { src: rosebudDetail, alt: "", position: "50% 60%" },
+          { src: netCapTies, alt: "", position: "50% 20%" },
+        ]}
+        action={
+          <div className="flex flex-col items-center gap-3">
+            <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-clay">
+              Shop my products
+            </p>
+            <ArrowLink href={site.craftStore} variant="solid" external>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+                className="size-[1.1em] shrink-0"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" />
+              </svg>
+              @lavanut.store on Instagram
+            </ArrowLink>
+          </div>
+        }
+      >
+        Give me a hook and some yarn,{" "}
+        <span className="italic text-clay">
+          and I&rsquo;ll give you something to wear.
+        </span>
       </WorldStatement>
 
       <section
@@ -36,15 +69,12 @@ export default async function HandmadePage() {
               Colour, pattern{" "}
               <span className="italic text-clay">&amp; material.</span>
             </h2>
-            <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted">
-              Placeholder photography
-            </p>
           </div>
-          <BlobGallery items={items} />
+          <PiecesGrid items={items} />
         </div>
       </section>
 
-      <NextWorld world={next} />
+      <OtherWorlds worlds={others} className="pt-[var(--section-space)]" />
       <RevealObserver />
     </>
   );

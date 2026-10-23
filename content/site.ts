@@ -11,8 +11,12 @@ export const site = {
   shortName: "SK",
   role: "Creative developer & maker",
   description:
-    "Swathi Krishna works between the screen and the worktable — designing and building for the web, and making beadwork, loom pieces and crochet by hand.",
+    "Swathi Krishna works between the screen and the worktable, designing and building for the web, and making beadwork, loom pieces and crochet by hand.",
   email: "hello@example.com",
+  // Country code and number, digits only, as wa.me expects.
+  whatsapp: "910000000000",
+  // The crochet shop, linked from the handmade page.
+  craftStore: "https://www.instagram.com/lavanut.store/",
   socials,
   nav: [
     { label: "Work", href: "/#work" },
